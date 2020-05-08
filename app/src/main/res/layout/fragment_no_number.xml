@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_view_app_icon"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wp_icon_with_text"
+            android:adjustViewBounds="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/guideline_top"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_view_settings"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            app:srcCompat="@drawable/ic_settings_icon"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/settings"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+            app:layout_constraintTop_toTopOf="@+id/image_view_app_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/image_view_app_icon"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_country_code_picker"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/country_code"
+            android:drawableEnd="@drawable/ic_down_icon"
+            app:drawableTint="@color/colorButtonText"
+            android:gravity="start"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@+id/image_view_app_icon"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_number"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_phone_number"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
+            app:counterMaxLength="20"
+            app:errorEnabled="true"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_country_code_picker">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="20"
+                android:gravity="start|top"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_message"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_message"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="20dp"
+            app:counterMaxLength="250"
+            app:counterEnabled="true"
+            app:errorEnabled="true"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@+id/text_input_number">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences|textMultiLine"
+                android:lines="5"
+                android:maxLength="250"
+                android:gravity="start|top"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_send_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/send_message"
+            android:background="@color/colorButtonBackground"
+            android:textColor="@color/colorButtonText"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            app:icon="@drawable/ic_message_icon"
+            app:iconTint="@color/colorButtonText"
+            app:cornerRadius="5dp"
+            app:elevation="5dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@+id/text_input_message"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
