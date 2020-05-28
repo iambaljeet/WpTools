@@ -1,4 +1,4 @@
-package com.app.whatsapptools.ui.dashboard.viewpager
+package com.app.whatsapptools.ui.dashboard.viewmodel
 
 import android.content.res.Resources
 import androidx.lifecycle.MutableLiveData

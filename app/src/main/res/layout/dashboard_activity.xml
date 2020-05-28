@@ -19,26 +19,13 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/dashboard_navigation"/>
 
-    <com.google.android.material.bottomappbar.BottomAppBar
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_bar_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:fabAlignmentMode="end"
-        app:fabAnimationMode="slide"
-        app:fabCradleRoundedCornerRadius="50dp"
-        app:fabCradleMargin="5dp"
         app:title="@string/app_name"
         app:menu="@menu/menu_dashboard"
-        app:hideOnScroll="true"
         app:layout_scrollFlags="scroll|enterAlways"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_history"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_anchor="@id/bottom_bar_dashboard"
-        android:src="@drawable/ic_history_icon"
-        android:contentDescription="@string/history" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

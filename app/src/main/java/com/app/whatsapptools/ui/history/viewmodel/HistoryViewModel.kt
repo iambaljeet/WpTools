@@ -1,7 +1,6 @@
-package com.app.whatsapptools.ui.history
+package com.app.whatsapptools.ui.history.viewmodel
 
 import androidx.lifecycle.ViewModel
 
 class HistoryViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
 }

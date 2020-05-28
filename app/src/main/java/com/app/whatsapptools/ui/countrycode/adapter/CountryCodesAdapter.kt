@@ -1,4 +1,4 @@
-package com.app.whatsapptools.ui.nonumber
+package com.app.whatsapptools.ui.countrycode.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +25,9 @@ class CountryCodesAdapter(private val recyclerViewItemClickCallback: RecyclerVie
         viewType: Int
     ): ViewHolderCountryCodes {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item_country_codes, parent, false)
-        return ViewHolderCountryCodes(itemView)
+        return ViewHolderCountryCodes(
+            itemView
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolderCountryCodes, position: Int) {

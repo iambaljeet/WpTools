@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/noNumberFragment"
-        android:name="com.app.whatsapptools.ui.nonumber.NoNumberFragment"
+        android:name="com.app.whatsapptools.ui.nonumber.fragment.NoNumberFragment"
         tools:layout="@layout/fragment_no_number"
         android:label="NoNumberFragment" />
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.app.whatsapptools.ui.history.HistoryFragment"
+        android:name="com.app.whatsapptools.ui.history.fragment.HistoryFragment"
         android:label="history_fragment"
         tools:layout="@layout/history_fragment" />
 </navigation>

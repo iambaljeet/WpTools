@@ -1,4 +1,4 @@
-package com.app.whatsapptools.ui.nonumber
+package com.app.whatsapptools.ui.countrycode.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.app.whatsapptools.R
 import com.app.whatsapptools.callback.RecyclerViewItemClickCallback
-import com.app.whatsapptools.di.component.DaggerViewModelComponent
-import com.app.whatsapptools.ui.dashboard.viewpager.DashboardViewModel
+import com.app.whatsapptools.ui.dashboard.viewmodel.DashboardViewModel
+import com.app.whatsapptools.ui.countrycode.adapter.CountryCodesAdapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -42,14 +42,13 @@ class CountryCodesDialogFragment : BottomSheetDialogFragment(), RecyclerViewItem
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        countryCodesAdapter = CountryCodesAdapter(this)
+        countryCodesAdapter =
+            CountryCodesAdapter(this)
         recycler_view_country_codes.adapter = countryCodesAdapter
 
         edit_text_country_code.doAfterTextChanged {
             countryCodesAdapter.filter.filter(it)
         }
-
-        DaggerViewModelComponent.builder().build().inject(this)
 
         dashboardViewModel.getCountryCodeList(resources = resources)
 

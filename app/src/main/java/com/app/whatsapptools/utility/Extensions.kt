@@ -4,7 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
+import com.app.whatsapptools.callback.DialogCallback
 
 inline fun <reified T: Any> Context.launch(
     options: Bundle? = null,
@@ -35,4 +38,59 @@ fun View.getCenter(): Pair<Float, Float> {
     val cx = this.x + this.width / 2
     val cy = this.y + this.height / 2
     return Pair(cx, cy)
+}
+
+fun Context.showOneButtonAlertDialog(title: String, subTitle: String? = null, positiveButtonText: String,
+                                     dialogCallback: DialogCallback? = null
+) {
+    val dialog = DialogUtility.buildOneButtonAlertDialog(
+        this,
+        title,
+        subTitle,
+        positiveButtonText,
+        dialogCallback
+    )
+    dialog.show()
+}
+
+fun Context.buildTwoButtonsAlertDialog(title: String, subTitle: String? = null, positiveButtonText: String, negativeButtonText: String,
+                                       dialogCallback: DialogCallback? = null
+) {
+    val dialog = DialogUtility.buildTwoButtonsAlertDialog(
+        this,
+        title,
+        subTitle,
+        positiveButtonText,
+        negativeButtonText,
+        dialogCallback
+    )
+    dialog.show()
+}
+
+fun String?.trueIfBlank(): Boolean {
+    return this == null || this.isNullOrBlank()
+}
+
+fun Context.logError(message: String?) {
+    Log.e(this::class.java.simpleName, message ?: "")
+}
+
+fun Context.logDebug(message: String?) {
+    Log.d(this::class.java.simpleName, message ?: "")
+}
+
+fun Context.logVerbose(message: String?) {
+    Log.v(this::class.java.simpleName, message ?: "")
+}
+
+fun Context.logInfo(message: String?) {
+    Log.i(this::class.java.simpleName, message ?: "")
+}
+
+fun Context.showSmallToast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+fun Context.showLongToast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }

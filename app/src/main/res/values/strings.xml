@@ -48,4 +48,9 @@
     <string name="choose_country_code">Choose country code</string>
     <string name="country_code">Country code</string>
     <string name="search_country_code">Search country code</string>
+    <string name="error">Error</string>
+    <string name="country_code_error_message">Please select a country code</string>
+    <string name="ok">Ok</string>
+    <string name="phone_number_error_message">Please enter phone number</string>
+    <string name="message_error_message">Please enter message</string>
 </resources>

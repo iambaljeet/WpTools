@@ -2,15 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/item_home"
-        android:title="Home"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_home_icon"/>
-    <item android:id="@+id/item_repeat"
-        android:title="Repeat"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_repeat_icon"/>
-    <item android:id="@+id/item_no_number"
-        android:title="Message without number"
-        app:showAsAction="always"
+        android:title="Message"
         android:icon="@drawable/ic_message_icon"/>
+    <item android:id="@+id/item_no_number"
+        android:title="Repeat"
+        android:icon="@drawable/ic_repeat_icon"/>
+    <item android:id="@+id/item_repeat"
+        android:title="History"
+        android:icon="@drawable/ic_history_icon"/>
 </menu>
