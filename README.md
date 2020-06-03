@@ -1,6 +1,6 @@
 ![](https://github.com/iambaljeet/WpTools/blob/master/art/app_template.jpg)
 
-# WpTools 🦠
+# WpTools 💬
 
 [![GitHub license](https://img.shields.io/github/license/iambaljeet/WpTools)](LICENSE)
 ![Github Followers](https://img.shields.io/github/followers/iambaljeet?style=social)
