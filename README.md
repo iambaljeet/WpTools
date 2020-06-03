@@ -39,10 +39,6 @@ This app uses [***MVVM (Model View View-Model)***](https://developer.android.com
 
 ![](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
 
-## Contribute
-If you want to contribute to this library, you're always welcome!
-See [Contributing Guidelines](CONTRIBUTING.md). 
-
 ## Contact
 If you need any help, you can connect with me.
 
