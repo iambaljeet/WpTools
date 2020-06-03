@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/country_code"
             android:drawableEnd="@drawable/ic_down_icon"
-            app:drawableTint="@color/colorButtonText"
+            app:drawableTint="@color/colorInverseIcon"
             android:gravity="start"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"

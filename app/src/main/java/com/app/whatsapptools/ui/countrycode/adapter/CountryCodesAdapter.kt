@@ -57,8 +57,8 @@ class CountryCodesAdapter(private val recyclerViewItemClickCallback: RecyclerVie
                 itemView.text_view_country_name.setTextColor(ContextCompat.getColor(itemView.context, R.color.ColorSelectedCountryCodeText))
                 itemView.text_view_country_code.setTextColor(ContextCompat.getColor(itemView.context, R.color.ColorSelectedCountryCodeText))
             } else {
-                itemView.text_view_country_name.setTextColor(ContextCompat.getColor(itemView.context, R.color.colorUnSelectedCountryCodeText))
-                itemView.text_view_country_code.setTextColor(ContextCompat.getColor(itemView.context, R.color.colorUnSelectedCountryCodeText))
+                itemView.text_view_country_name.setTextColor(ContextCompat.getColor(itemView.context, R.color.colorTextInverse))
+                itemView.text_view_country_code.setTextColor(ContextCompat.getColor(itemView.context, R.color.colorTextInverse))
             }
 
             itemView.container_country_code.setOnClickListener(this)

@@ -2,6 +2,9 @@
 <resources>
     <color name="colorButtonText">#FFFFFF</color>
     <color name="colorAccent">#FFC107</color>
-    <color name="colorUnSelectedCountryCodeText">#FFFFFF</color>
     <color name="ColorSelectedCountryCodeText">#FFC107</color>
+
+    <color name="colorButtonIconTint">#FFFFFF</color>
+    <color name="colorInverseIcon">#FFFFFF</color>
+    <color name="colorTextInverse">#FFFFFF</color>
 </resources>
