@@ -2,17 +2,17 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dashboard_navigation"
-    app:startDestination="@id/noNumberFragment">
+    app:startDestination="@id/item_home">
 
     <fragment
-        android:id="@+id/noNumberFragment"
+        android:id="@+id/item_home"
         android:name="com.app.whatsapptools.ui.nonumber.fragment.NoNumberFragment"
         tools:layout="@layout/fragment_no_number"
-        android:label="NoNumberFragment" />
+        android:label="Message" />
+
     <fragment
-        android:id="@+id/historyFragment"
+        android:id="@+id/item_history"
         android:name="com.app.whatsapptools.ui.history.fragment.HistoryFragment"
-        android:label="history_fragment"
-        tools:layout="@layout/history_fragment" />
+        tools:layout="@layout/history_fragment"
+        android:label="History" />
 </navigation>

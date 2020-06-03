@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.app.whatsapptools.R
-import com.app.whatsapptools.ui.dashboard.viewmodel.DashboardViewModel
 import com.app.whatsapptools.ui.countrycode.fragment.CountryCodesDialogFragment
-import com.app.whatsapptools.utility.DialogUtility
+import com.app.whatsapptools.ui.dashboard.viewmodel.DashboardViewModel
 import com.app.whatsapptools.utility.openWhatsApp
+import com.app.whatsapptools.utility.showOneButtonAlertDialog
 import kotlinx.android.synthetic.main.fragment_no_number.*
 
 class NoNumberFragment : Fragment(), View.OnClickListener {
@@ -31,6 +31,13 @@ class NoNumberFragment : Fragment(), View.OnClickListener {
         dashboardViewModel.selectedCountryCodeLiveData.observe(viewLifecycleOwner, Observer {
             text_view_country_code_picker.text = "${it.dial_code} (${it.code})"
         })
+
+        dashboardViewModel.enteredCountryCode.observe(viewLifecycleOwner, Observer { countryCode ->
+            text_view_country_code_picker.text = countryCode })
+        dashboardViewModel.enteredPhoneNumber.observe(viewLifecycleOwner, Observer { phoneNumber ->
+            edit_text_number.setText(phoneNumber) })
+        dashboardViewModel.enteredMessage.observe(viewLifecycleOwner, Observer { message ->
+            edit_text_message.setText(message) })
 
         button_send_message.setOnClickListener(this)
     }
@@ -59,12 +66,7 @@ class NoNumberFragment : Fragment(), View.OnClickListener {
     }
 
     private fun showErrorDialog(errorMessage: String) {
-        DialogUtility.buildOneButtonAlertDialog(
-            requireContext(),
-            getString(R.string.error),
-            errorMessage,
-            getString(R.string.ok)
-        ).show()
+        context?.showOneButtonAlertDialog(title = getString(R.string.error), subTitle = errorMessage, positiveButtonText = getString(R.string.ok))
     }
 
     override fun onClick(v: View?) {
@@ -84,6 +86,8 @@ class NoNumberFragment : Fragment(), View.OnClickListener {
         val countryCode = text_view_country_code_picker.text.toString().trim()
         val phoneNumber = edit_text_number.text.toString().trim()
         val message = edit_text_message.text.toString().trim()
+        val dateTime = System.currentTimeMillis()
+        dashboardViewModel.saveMessageToDb(countryCode, phoneNumber, message, dateTime)
         context?.openWhatsApp(fullPhoneNumber = "$countryCode$phoneNumber", message = message)
     }
 

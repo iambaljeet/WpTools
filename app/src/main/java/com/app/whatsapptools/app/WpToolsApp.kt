@@ -5,7 +5,7 @@ import com.app.whatsapptools.database.database.MessagesDatabase
 
 class WpToolsApp: Application() {
     companion object {
-        var database: MessagesDatabase? = null
+        lateinit var database: MessagesDatabase
     }
 
     override fun onCreate() {

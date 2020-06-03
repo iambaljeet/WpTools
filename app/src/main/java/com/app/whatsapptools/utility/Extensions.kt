@@ -29,15 +29,9 @@ fun Context.openWhatsApp(fullPhoneNumber: String, message: String) {
 
 fun View.applyTopInsets(additionalTopPadding: Int? = 0) {
     setOnApplyWindowInsetsListener { v, insets ->
-        setPadding(0, insets.stableInsetTop + (additionalTopPadding ?: 0), 0, 0)
+        setPadding(0, insets.systemWindowInsetTop + (additionalTopPadding ?: 0), 0, 0)
         insets.consumeSystemWindowInsets()
     }
-}
-
-fun View.getCenter(): Pair<Float, Float> {
-    val cx = this.x + this.width / 2
-    val cy = this.y + this.height / 2
-    return Pair(cx, cy)
 }
 
 fun Context.showOneButtonAlertDialog(title: String, subTitle: String? = null, positiveButtonText: String,
