@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -15,13 +16,16 @@ import com.app.whatsapptools.database.entitity.MessagesTextEntity
 import com.app.whatsapptools.ui.dashboard.viewmodel.DashboardViewModel
 import com.app.whatsapptools.ui.history.adapter.HistoryAdapter
 import kotlinx.android.synthetic.main.history_fragment.*
+import java.util.*
 
 class HistoryFragment : Fragment(), RecyclerViewItemClickCallback {
     private val dashboardViewModel: DashboardViewModel by activityViewModels()
 
     private lateinit var historyAdapter: HistoryAdapter
+    private var dataList = mutableListOf<MessagesTextEntity>()
 
-    private var messagesListObserver = Observer<MutableList<MessagesTextEntity>> { dataList ->
+    private var messagesListObserver = Observer<MutableList<MessagesTextEntity>> { list ->
+        this.dataList = list
         setData(dataList)
     }
 
@@ -37,6 +41,10 @@ class HistoryFragment : Fragment(), RecyclerViewItemClickCallback {
 
         historyAdapter = HistoryAdapter(this)
         recycler_view_messages.adapter = historyAdapter
+
+        edit_text_search.doOnTextChanged { text, start, before, count ->
+            filterList(text)
+        }
 
         val allSavedMessagesLivaData = dashboardViewModel.getAllSavedMessages()
         allSavedMessagesLivaData.observe(viewLifecycleOwner, messagesListObserver)
@@ -56,7 +64,7 @@ class HistoryFragment : Fragment(), RecyclerViewItemClickCallback {
         }
     }
 
-    private fun setData(dataList: MutableList<MessagesTextEntity>) {
+    private fun setData(dataList: List<MessagesTextEntity>) {
         if (dataList.isNotEmpty()) {
             historyAdapter.submitList(dataList)
             recycler_view_messages?.isVisible = true
@@ -65,5 +73,15 @@ class HistoryFragment : Fragment(), RecyclerViewItemClickCallback {
             text_view_no_data?.isVisible = true
             recycler_view_messages?.isVisible = false
         }
+    }
+
+    private fun filterList(text: CharSequence?) {
+        val filteredList = dataList.filter { messagesTextEntity ->
+            val textToSearch = text?.toString()?.toLowerCase(Locale.getDefault()) ?: String()
+            val message = messagesTextEntity.messageText.toLowerCase(Locale.getDefault())
+            val phoneNumber = messagesTextEntity.phoneNumber.toLowerCase(Locale.getDefault())
+            message.contains(textToSearch) || phoneNumber.contains(textToSearch)
+        }
+        setData(filteredList)
     }
 }
