@@ -7,4 +7,6 @@
     <color name="colorButtonIconTint">#FFFFFF</color>
     <color name="colorInverseIcon">#FFFFFF</color>
     <color name="colorTextInverse">#FFFFFF</color>
+
+    <color name="colorSplashBg">#000000</color>
 </resources>
