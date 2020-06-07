@@ -10,14 +10,14 @@
 ![Tweet](	https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fiambaljeet%2FWpTools)
 ![Twitter Follow](https://img.shields.io/twitter/follow/baljeet_dev?label=Follow&style=social)
 
-**WpTools** is an Android applciation 📱 used to send message on Whatsapp without saving the recipient's number. 
+**WpTools** is an Android application 📱 used to send message on Whatsapp without saving the recipient's number. 
 
 ***You can Install and test latest app from below 👇***
 
 - [APK](https://github.com/iambaljeet/WpTools/blob/master/apk/app-debug.apk)
 
 ## About
-. With this application one can send message to any number on Whatsapp without saving it on their device. Also the app will maintain a history of all messages sent so one can easily use them in just one click.
+With this application one can send message to any number on Whatsapp without saving that number on their device. Also the app will maintain a history of all messages sent so one can easily use them in just one click.
 - Clean and Simple Material UI.
 - It supports dark theme too 🌗.
 
