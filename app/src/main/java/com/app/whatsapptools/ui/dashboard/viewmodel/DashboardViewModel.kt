@@ -7,13 +7,13 @@ import com.app.whatsapptools.database.dao.MessageDao
 import com.app.whatsapptools.database.entitity.MessagesTextEntity
 import com.app.whatsapptools.model.CountryCodesModel
 import com.app.whatsapptools.repository.CountryCodesRepository
+import com.app.whatsapptools.repository.MessagesHistoryRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class DashboardViewModel : ViewModel() {
     var selectedCountryCodeLiveData: MutableLiveData<CountryCodesModel.CountryCodesModelItem> = MutableLiveData()
     var countryCodes: MutableLiveData<List<CountryCodesModel.CountryCodesModelItem>> = CountryCodesRepository.countryCodes
-    private var messageDao: MessageDao = WpToolsApp.database.messageDao()
 
     var enteredCountryCode: MutableLiveData<String> = MutableLiveData()
     var enteredPhoneNumber: MutableLiveData<String> = MutableLiveData()
@@ -21,7 +21,7 @@ class DashboardViewModel : ViewModel() {
 
     fun getAllSavedMessages(): LiveData<MutableList<MessagesTextEntity>> {
         return liveData(Dispatchers.IO) {
-            emitSource(messageDao.getAllMessages())
+            emitSource(MessagesHistoryRepository.getPastMessages())
         }
     }
 
@@ -41,7 +41,7 @@ class DashboardViewModel : ViewModel() {
         )
 
         viewModelScope.launch(Dispatchers.IO) {
-            messageDao.insertMessage(messagesTextEntity)
+            MessagesHistoryRepository.addMessage(messagesTextEntity)
         }
     }
 }
