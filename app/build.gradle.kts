@@ -39,7 +39,7 @@ dependencies {
     implementation(Android.kotlinJdk7)
 
     implementation(Room.room)
-    implementation(Room.roomRuntime)
+    kapt(Room.roomRuntime)
 
     implementation(AndroidX.constraintLayout)
     implementation(AndroidX.lifecycle)
