@@ -1,12 +1,15 @@
 package com.app.whatsapptools.utility
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import com.app.whatsapptools.callback.DialogCallback
 
 inline fun <reified T: Any> Context.launch(
@@ -87,4 +90,22 @@ fun Context.showSmallToast(message: String) {
 
 fun Context.showLongToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+}
+
+fun Activity.screenDimens(screenDimens: (width: Int, height: Int) -> Unit) {
+    val displayMetrics = DisplayMetrics()
+    windowManager.defaultDisplay.getMetrics(displayMetrics)
+
+    val width = displayMetrics.widthPixels
+    val height = displayMetrics.heightPixels
+    screenDimens(width, height)
+}
+
+fun FragmentActivity.screenDimens(screenDimens: (width: Int, height: Int) -> Unit) {
+    val displayMetrics = DisplayMetrics()
+    windowManager.defaultDisplay.getMetrics(displayMetrics)
+
+    val width = displayMetrics.widthPixels
+    val height = displayMetrics.heightPixels
+    screenDimens(width, height)
 }

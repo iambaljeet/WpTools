@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -12,6 +13,7 @@ import com.app.whatsapptools.R
 import com.app.whatsapptools.callback.RecyclerViewItemClickCallback
 import com.app.whatsapptools.ui.countrycode.adapter.CountryCodesAdapter
 import com.app.whatsapptools.ui.dashboard.viewmodel.DashboardViewModel
+import com.app.whatsapptools.utility.screenDimens
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -35,6 +37,10 @@ class CountryCodesDialogFragment : BottomSheetDialogFragment(), RecyclerViewItem
                 bottomSheetBehavior = BottomSheetBehavior.from(it)
                 bottomSheetBehavior?.isFitToContents = false
                 bottomSheetBehavior?.isHideable = true
+                requireActivity().screenDimens { width, height ->
+                    it.minimumHeight = height
+                    bottomSheetBehavior?.peekHeight = (height/1.2).toInt()
+                }
             }
         }
 
