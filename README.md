@@ -6,7 +6,6 @@
 ![GitHub stars](https://img.shields.io/github/stars/iambaljeet/WpTools?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/iambaljeet/WpTools)
 ![GitHub watchers](https://img.shields.io/github/watchers/iambaljeet/WpTools?style=social)
-[![Build](https://github.com/iambaljeet/WpTools/workflows/Build/badge.svg?branch=master)](https://github.com/iambaljeet/WpTools/actions?query=workflow%3AAndroid%20Master%20CI)
 ![Tweet](	https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fiambaljeet%2FWpTools)
 ![Twitter Follow](https://img.shields.io/twitter/follow/yetanotherdev_?label=Follow&style=social)
 
